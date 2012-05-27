@@ -11,18 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526130703) do
+ActiveRecord::Schema.define(:version => 20120527095406) do
+
+  create_table "boot_sizes", :force => true do |t|
+    t.string   "size"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "boots", :force => true do |t|
     t.integer  "number"
-    t.integer  "size"
     t.string   "brand"
     t.string   "condition"
     t.integer  "store_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.boolean  "in_store"
     t.boolean  "available"
+    t.integer  "boot_size_id"
   end
 
   create_table "customers", :force => true do |t|
@@ -55,16 +61,22 @@ ActiveRecord::Schema.define(:version => 20120526130703) do
     t.string   "in_or_out",  :limit => 25
   end
 
+  create_table "ski_sizes", :force => true do |t|
+    t.string   "size"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "skis", :force => true do |t|
     t.integer  "number"
     t.string   "brand"
     t.string   "condition"
     t.integer  "store_id"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.boolean  "in_store"
     t.boolean  "available"
-    t.string   "size",       :limit => 25
+    t.integer  "ski_size_id"
   end
 
   create_table "stores", :force => true do |t|

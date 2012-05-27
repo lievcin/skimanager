@@ -25,6 +25,8 @@ SkiRental::Application.routes.draw do
   resources :skis
   resources :boots
   resources :rentals
+  resources :boot_sizes
+  resources :ski_sizes  
   
   match ':controller(/:action(/:id(.:format)))'
 

@@ -1,5 +1,3 @@
-
-	
 $(document).ready(function() {
 
 	
@@ -68,7 +66,7 @@ $(document).ready(function() {
 		  new_package_modal.load(new_package_url + ' #content',function(){
 		      var dates = $( "#package_start_date, #package_end_date" ).datepicker({
 			  defaultDate: 0,
-			  minDate: 0,
+			  // minDate: 0,
 			  numberOfMonths: 2,
 		  			  dateFormat: "yy-mm-dd",
 			  onSelect: function( selectedDate ) {

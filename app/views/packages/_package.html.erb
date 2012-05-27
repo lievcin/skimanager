@@ -9,9 +9,11 @@
 	<td style="text-align:center"><%= package.end_date %></td>
 	<td style="text-align:center">
 		<a class="btn btn-mini btn-primary" href="<%= store_root_path(:package_id => package.id, :customer_id => params[:customer_id]) %>"><i class="icon-tags"> Details</i></a>
+		<% if package.status != 'expired' %> 
 		<a class="btn btn-mini btn-<%= package.status == 'out' ? "success" : "danger" %>" 
 			href="<%= package.status == 'out' ? '/rentals/' + package.id.to_s + '/checkin'  : '/rentals/' + package.id.to_s + '/checkout'%>" data-remote="true">
 			<i class="icon-chevron-<%= package.status == 'out' ? 'left' : 'right'%>"></i><%= package.status == 'out' ? '  In' : ' Out'%></a>
+		<% end %>	
 	</td>
 	
 <% end %>

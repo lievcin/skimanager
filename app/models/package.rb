@@ -5,19 +5,13 @@ class Package < ActiveRecord::Base
   belongs_to :boot
   belongs_to :ski
   has_many :rentals
-  after_save :reserve_kit
+  after_create :reserve_kit
   before_destroy :release_kit
-  
-  # validate :checking_boot_not_already_reserved, :on => :create
-  
+  before_update :release_kit
+  after_update :reserve_kit
+      
   private
-  
-  # def checking_boot_not_already_reserved
-  #   if self.boot.available = '0'
-  #     errors.add(:boot, "has been reserved while session open, reload screen")
-  #   end
-  # end
-    
+      
   def reserve_kit
     @boot = self.boot
     @boot.available = false
@@ -30,10 +24,16 @@ class Package < ActiveRecord::Base
   def release_kit
     @boot = self.boot
     @boot.available = true
+    @boot.in_store = true    
     @boot.save
     @ski = self.ski
     @ski.available = true
+    @ski.in_store = true        
     @ski.save    
   end
-  
+
+  def check_expiration
+    puts 'clwlkwclwkchlckwhlkhclwkdhcwdlkchwldkchkclwhckldhclkwdclwdkckh'
+  end
+    
 end

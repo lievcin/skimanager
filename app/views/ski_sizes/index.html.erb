@@ -1,0 +1,23 @@
+<h1>Listing ski_sizes</h1>
+
+<table>
+  <tr>
+    <th>Size</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ski_sizes.each do |ski_size| %>
+  <tr>
+    <td><%= ski_size.size %></td>
+    <td><%= link_to 'Show', ski_size %></td>
+    <td><%= link_to 'Edit', edit_ski_size_path(ski_size) %></td>
+    <td><%= link_to 'Destroy', ski_size, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ski size', new_ski_size_path %>

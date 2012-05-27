@@ -1,9 +1,9 @@
 module BootsHelper
   
   def boots_chart_series(boots)
-      boots_by_size = boots.group("size").select("size, count(id) as total_boots")
-      (33..46).map do |size|
-        boot = boots_by_size.detect { |boot| boot.size == size }
+      boots_by_size = boots.group("boot_size_id").select("boot_size_id, count(id) as total_boots")
+      BootSize.all.map do |size|
+        boot = boots_by_size.detect { |boot| boot.boot_size == size }
         boot && boot.total_boots.to_f || 0
       end.inspect
   end

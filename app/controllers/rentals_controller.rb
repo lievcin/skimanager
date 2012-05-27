@@ -14,8 +14,10 @@ class RentalsController < ApplicationController
     @package.status = 'out'
     @boot = @package.boot
     @boot.in_store = false
+    @ski = @package.ski
+    @ski.in_store = false    
     respond_to do |format|
-      if @rental.save && @package.save && @boot.save
+      if @rental.save && @package.save && @boot.save && @ski.save
         @rentals = @package.rentals
         format.js
       else
@@ -31,10 +33,12 @@ class RentalsController < ApplicationController
     @rental.in_or_out = 'in'
     @package.status = 'in' 
     @boot = @package.boot
-    @boot.in_store = true    
+    @boot.in_store = true   
+    @ski = @package.ski
+    @ski.in_store = true     
     respond_to do |format|
       @rentals = @package.rentals 
-      if @rental.save && @package.save && @boot.save     
+      if @rental.save && @package.save && @boot.save && @ski.save
         format.js
       else
         format.js

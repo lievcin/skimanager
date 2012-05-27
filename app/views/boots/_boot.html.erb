@@ -4,7 +4,7 @@
 	  <a class="btn btn-mini btn-danger" href="<%=boot_path(boot)%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow"><i class="icon-trash"></i></a>
 	</td>
 	<td style="text-align:center"><span class="badge badge-success"><%=h boot.number %></span></td>
-	<td style="text-align:center"><%=h boot.size %></td>
+	<td style="text-align:center"><%=h boot.boot_size.size %></td>
 	<td style="text-align:center"><%=h boot.condition %></td>
 	<td style="text-align:center"><%=h boot.brand %></td>
 	<td style="text-align:center"><span class="badge badge-<%= boot.in_store ? "success" : "error" %>"><%=h boot.in_store ? "In Store" : "Out Skiing" %></td>

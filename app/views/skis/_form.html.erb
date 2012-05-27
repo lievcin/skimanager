@@ -1,7 +1,7 @@
 <%= simple_form_for(@ski, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>
 <fieldset>
     <%= f.input :number, :input_html => { :value => ski_suggested_number } %>
-    <%= f.input :size, :collection => ski_size_options %>
+    <%= f.input :ski_size_id, :collection => SkiSize.all, :label_method => :size, :value_method => :id  %>
     <%= f.input :condition, :collection => ski_condition_options %>
     <%= f.input :brand , :collection => ski_brand_options %>
 </fieldset>

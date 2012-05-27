@@ -1,7 +1,7 @@
 <%= simple_form_for(@package, :html => { :class => 'form-vertical' }, :remote => true) do |f| %>	
   <fieldset>
-    <%= f.input :ski_id, :collection => @available_skis.order('number ASC'), :label_method => :number, :value_method => :id %>
-    <%= f.input :boot_id, :collection => @available_boots.order('number ASC'), :label_method => :number, :value_method => :id %>
+	<%= f.input :ski_id, :collection => SkiSize.includes(:skis).where(["skis.available = ?", "1"]).where(["store_id = ?", "#{current_store.id}"]).order('size ASC'), :as => :grouped_select, :group_method => :skis, :group_label_method => :size, :label_method => :number, :value_method => :id %>
+	<%= f.input :boot_id, :collection => BootSize.includes(:boots).where(["boots.available = ?", "1"]).where(["store_id = ?", "#{current_store.id}"]).order('size ASC'), :as => :grouped_select, :group_method => :boots, :group_label_method => :size, :label_method => :number, :value_method => :id %>
     <%= f.input :start_date, :as => :string %>
     <%= f.input :end_date, :as => :string %>
   </fieldset>

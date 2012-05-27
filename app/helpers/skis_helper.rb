@@ -1,9 +1,9 @@
 module SkisHelper
 
   def skis_chart_series(skis)
-      skis_by_size = skis.group("size").select("size, count(id) as total_skis")
-      ski_size_options.map do |size|
-        ski = skis_by_size.detect { |ski| ski.size == size }
+      skis_by_size = skis.group("ski_size_id").select("ski_size_id, count(id) as total_skis")
+      SkiSize.all.map do |size|
+        ski = skis_by_size.detect { |ski| ski.ski_size == size }
         ski && ski.total_skis.to_f || 0
       end.inspect
   end

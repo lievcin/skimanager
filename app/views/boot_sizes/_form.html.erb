@@ -1,0 +1,21 @@
+<%= form_for(@boot_size) do |f| %>
+  <% if @boot_size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boot_size.errors.count, "error") %> prohibited this boot_size from being saved:</h2>
+
+      <ul>
+      <% @boot_size.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

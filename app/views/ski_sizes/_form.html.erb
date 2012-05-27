@@ -1,0 +1,21 @@
+<%= form_for(@ski_size) do |f| %>
+  <% if @ski_size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ski_size.errors.count, "error") %> prohibited this ski_size from being saved:</h2>
+
+      <ul>
+      <% @ski_size.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

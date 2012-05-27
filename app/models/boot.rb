@@ -1,10 +1,11 @@
 class Boot < ActiveRecord::Base
-  attr_accessible :brand, :condition, :number, :size, :store_id
+  attr_accessible :brand, :condition, :number, :store_id, :boot_size_id
   belongs_to :store
+  belongs_to :boot_size
   has_many :packages
   validates :number, :uniqueness => { :scope => :store_id }
   validates :number, :numericality => { :greater_than_or_equal_to => 1 }
-  validates_presence_of :number, :size
+  validates_presence_of :number, :boot_size
 
       
   scope :available, where(:available => '1')

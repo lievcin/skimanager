@@ -1,7 +1,7 @@
 <%= simple_form_for @boot, :html => { :class => 'form-vertical' }, :remote => true do |f| %>
 <fieldset>
     <%= f.input :number, :input_html => { :value => boot_suggested_number } %>
-    <%= f.input :size, :collection => boot_size_options %>
+    <%= f.input :boot_size_id, :collection => BootSize.all, :label_method => :size, :value_method => :id  %>
     <%= f.input :condition, :collection => boot_condition_options %>
     <%= f.input :brand , :collection => boot_brand_options %>
 </fieldset>

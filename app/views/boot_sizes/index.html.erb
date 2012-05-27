@@ -1,0 +1,23 @@
+<h1>Listing boot_sizes</h1>
+
+<table>
+  <tr>
+    <th>Size</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boot_sizes.each do |boot_size| %>
+  <tr>
+    <td><%= boot_size.size %></td>
+    <td><%= link_to 'Show', boot_size %></td>
+    <td><%= link_to 'Edit', edit_boot_size_path(boot_size) %></td>
+    <td><%= link_to 'Destroy', boot_size, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boot size', new_boot_size_path %>
